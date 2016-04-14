@@ -10,7 +10,7 @@ end
 
 def valid_number?(num)
   # it has a valid numerical representation
-  num.to_i() != 0
+  num.to_i.to_s == num
 end
 
 def operator_to_message(op)
@@ -87,7 +87,7 @@ loop do # main loop
     end
   end
 
-  prompt("#{operation_to_message(operator)} the two numbers...")
+  prompt("#{operator_to_message(operator)} the two numbers...")
 
   result = case operator
            when '1'
