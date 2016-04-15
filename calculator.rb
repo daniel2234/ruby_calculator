@@ -1,3 +1,6 @@
+require 'yaml'
+MESSAGES = YAML.load_file('calculator_messages.yml')
+
 # ask the user for two numbers
 # ask the user for an operation
 # perform the operation on thw two numbers
@@ -22,19 +25,24 @@ def valid_number?(input)
 end
 
 def operator_to_message(op)
-  case op
-  when "1"
-    "Adding"
-  when "2"
-    "Subtracting"
-  when "3"
-    "Multiplying"
-  when "4"
-    "Dividing"
-  end
+  word = case op
+          when "1"
+            "Adding"
+          when "2"
+            "Subtracting"
+          when "3"
+            "Multiplying"
+          when "4"
+            "Dividing"
+        end
+
+  x = "a random of line of code"
+
+
+  word
 end
 
-prompt("Welcome to the Calculator! Enter your name:")
+prompt(MESSAGES['welcome'])
 
 name = ''
 loop do
@@ -75,11 +83,11 @@ loop do # main loop
   end
 
   operator_prompt = <<-MSG
-    What operation would you like perform?
-    1)add
-    2)subtract
-    3)multiply
-    4)divide
+  What operation would you like perform?
+      1)add
+      2)subtract
+      3)multiply
+      4)divide
   MSG
 
   prompt(operator_prompt)
