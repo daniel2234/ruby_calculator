@@ -8,9 +8,17 @@ def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
-def valid_number?(num)
+def integer?(input)
+  input.to_i.to_s == input
+end
+
+def float?(input)
+  input.to_f.to_s == input
+end
+
+def valid_number?(input)
   # it has a valid numerical representation
-  num.to_i.to_s == num
+  integer?(input) || float?(input)
 end
 
 def operator_to_message(op)
